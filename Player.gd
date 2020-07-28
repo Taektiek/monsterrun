@@ -1,4 +1,5 @@
 extends Area2D
+
 signal hit
 
 export var speed = 400
@@ -42,9 +43,7 @@ func _process(delta):
 		$AnimatedSprite.flip_v = velocity.y > 0
 
 
-func _on_Player_body_entered():
+func _on_Player_body_entered(x):
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled", true)
-	pass # Replace with function body.
-
